@@ -18,7 +18,8 @@ app.use(express.json());
 app.use(express.static("public"));
 
 mongoose.connect(MONGODB_URI, { useNewUrlParser: true });
-app.get("/", function scrape(req, res) {
+
+app.get( function scrape(req, res) {
   // First, we grab the body of the html with axios
   axios.get("https://www.nbcnews.com/politics").then(function (response) {
     // Then, we load that into cheerio and save it to $ for a shorthand selector
@@ -50,10 +51,12 @@ app.get("/", function scrape(req, res) {
           // If an error occurred, log it
           console.log(err);
         });
+        
     });
 
     // Send a message to the client
     res.send("Scrape Complete");
+    return res.redirect('/');
   });
 });
 

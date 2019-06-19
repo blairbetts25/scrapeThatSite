@@ -1,9 +1,9 @@
-import { SchemaType } from "mongoose";
+// import { SchemaType } from "mongoose";
 
 
 // Grab the articles as a json
 $(document).on("click", "#scrape", function () {
-  scrape()
+  // window.location ="/scrape";  
 
   $.getJSON("/articles", function (data) {
     // For each one
